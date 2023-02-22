@@ -67,21 +67,25 @@ app.post('/register',function(req,res){
 })
 //Login route
 
-app.post('/login',function(req,res){
-    const username  = req.body.username;
+app.post("/login", function(req, res) {
+    const username = req.body.username;
     const password = req.body.password;
 
- 
-
-    User.findOne({email:username},function(err,founduser){
-        if(err){
-     console.log(err);
+    User.findOne({ email: username}, function(error, user){
+        if(error){
+            console.log(error);
+            res.redirect("/login?error=internal");
         }else{
-            if(founduser){
-                if(founduser.password===password){
-                    res.render('secrets');
+            if(user){
+                const hashedPassword = md5(password);
+                if(user.password === hashedPassword){
+                    res.render("secrets");
+                } else {
+                    res.redirect("/login?error=auth");
                 }
+            } else {
+                res.redirect("/login?error=auth");
             }
         }
-    })
-})
+    });
+});

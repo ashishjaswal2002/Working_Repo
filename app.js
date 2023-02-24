@@ -6,10 +6,19 @@ const ejs = require("ejs");
 const app = express();
 const mongoose = require("mongoose");
 const { strict } = require("assert");
+
+
+const session = require("session");
+
+
+
+
 // const encrypt = require('mongoose-encryption');
 // const md5 = require('md5');
 //Using Bycrypt
 const bcrypt = require("bcrypt");
+
+
 
 const saltRounds = 10;
 
@@ -18,6 +27,15 @@ console.log(process.env.SECRET);
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(session({
+    secret:"Iron Man",
+    resave:false,
+    saveUninitialized:false
+})); 
+
+
+
 mongoose.set("strictQuery", true);
 mongoose.connect("mongodb://localhost:27017/userDB", { useNewUrlParser: true });
 //Create a Schema

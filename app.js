@@ -15,6 +15,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 // const md5 = require('md5');
 //Using Bycrypt
 const bcrypt = require("bcrypt");
+const { nextTick } = require("process");
 
 const saltRounds = 10;
 
@@ -93,7 +94,19 @@ app.get("/register", function (req, res) {
 //   });
 // });
 //Commenting to use Authentication...
-
+app.get('/logout',function(req,res){
+  
+  req.logout(function(err){
+    if(err){
+      return next(err);
+    }
+    else{
+      res.redirect('/');
+    }
+  });
+  //
+  
+})
 
 app.post('/register',function(req,res){
      User.register({username:req.body.username},req.body.password,function(err,user){
@@ -140,19 +153,31 @@ app.get('/secrets',function(req,res){
 //     });
 // });
 app.post("/login", function (req, res) {
-  const username = req.body.username;
-  const password = req.body.password;
-  User.findOne({ email: username }, function (error, user) {
-    if (error) {
-      console.log(error);
-    } else {
-      if (user) {
-        bcrypt.compare(password, user.password, function (err, result) {
-          if (result === true) {
-            res.render("secrets");
-          }
-        });
-      }
+  const user  =new User({
+    username:req.body.username,
+    password:req.body.password
+  })
+  // User.findOne({ email: username }, function (error, user) {
+  //   if (error) {
+  //     console.log(error);
+  //   } else {
+  //     if (user) {
+  //       bcrypt.compare(password, user.password, function (err, result) {
+  //         if (result === true) {
+  //           res.render("secrets");
+  //         }
+  //       });
+  //     }
+  //   }
+  // });
+  req.logIn(user,function(err){
+    if(err){
+      console.log(err);
+    }else{
+      passport.authenticate("local")(req,res,function(){
+        res.redirect('/secrets');
+      });
     }
-  });
+  })
+
 });

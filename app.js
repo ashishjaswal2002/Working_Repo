@@ -9,6 +9,9 @@ const { strict } = require("assert");
 
 
 const session = require("session");
+const passport = require("passport");
+const passportLocalMongoose = require("passport-local-mongoose");
+
 
 
 
@@ -28,11 +31,6 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(session({
-    secret:"Iron Man",
-    resave:false,
-    saveUninitialized:false
-})); 
 
 
 

@@ -11,7 +11,7 @@ const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");//Package Strategy
 
-
+const findOrCreate = require("mongoose-findorcreate");
 
 ///AUTH PART
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
@@ -60,6 +60,7 @@ const userSchema = new mongoose.Schema({
 });
 
  userSchema.plugin(passportLocalMongoose);
+ userSchema.plugin(findOrCreate);
  
 
 
@@ -74,6 +75,7 @@ passport.use(new GoogleStrategy({
   clientID:   process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
   callbackURL: "http://localhost:3000/auth/google/secrets",//Redirectr URL
+  userProfileURL:"https://www.googleapis.com/oauth2/v3/userinfo",
   passReqToCallback   : true
 },
 function(request, accessToken, refreshToken, profile, done) {
@@ -91,6 +93,10 @@ app.listen(3000, function () {
 app.get("/", function (req, res) {
   res.render("home");
 });
+
+app.get("/auth/google",function(req,res){
+  passport.authenticate("google",{scope:['profile']})
+})
 
 app.get("/login", function (req, res) {
   res.render("login");

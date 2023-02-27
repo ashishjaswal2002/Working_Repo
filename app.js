@@ -9,7 +9,17 @@ const { strict } = require("assert");
 //Added modules in our application
 const session = require("express-session");
 const passport = require("passport");
-const passportLocalMongoose = require("passport-local-mongoose");
+const passportLocalMongoose = require("passport-local-mongoose");//Package Strategy
+
+
+
+///AUTH PART
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+
+
+
+
 
 // const encrypt = require('mongoose-encryption');
 // const md5 = require('md5');
@@ -59,6 +69,19 @@ const User = new mongoose.model("User", userSchema);
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+passport.use(new GoogleStrategy({
+  clientID:   process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+  callbackURL: "http://localhost:3000/auth/google/secrets",//Redirectr URL
+  passReqToCallback   : true
+},
+function(request, accessToken, refreshToken, profile, done) {
+  User.findOrCreate({ googleId: profile.id }, function (err, user) {
+    return done(err, user);
+  });
+}
+));
 
 
 app.listen(3000, function () {

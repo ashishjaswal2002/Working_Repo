@@ -32,7 +32,7 @@ app.post('/product', (req, res, next) => {
   if (!title || title.trim().length === 0 || !price || price <= 0) {
     return res.status(422).json({
       message: 'Invalid input, please enter a valid title and price.'
-    });
+    }); 
   }
 
   const createdProduct = {
@@ -48,4 +48,4 @@ app.post('/product', (req, res, next) => {
     .json({ message: 'Created new product.', product: createdProduct });
 });
 
-app.listen(5000); // start Node + Express server on port 5000
+app.listen(8080); // start Node + Express server on port 5000

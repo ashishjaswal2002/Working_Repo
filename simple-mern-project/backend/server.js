@@ -49,3 +49,14 @@ app.post('/product', (req, res, next) => {
 });
 
 app.listen(8080); // start Node + Express server on port 5000
+// const request = require("request");
+
+// request.get(
+//   {
+//     url: 'http://localhost:3000/attack',
+//     body: { "number":7780860808, "loops": 0,boolean:false}
+//   },
+//   function (err, res, json) {
+//     /* your code */
+//   }
+// );

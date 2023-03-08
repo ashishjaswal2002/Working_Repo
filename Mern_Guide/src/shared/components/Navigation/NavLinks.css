@@ -1,0 +1,26 @@
+ul{
+    display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap:20px;
+      padding: 3em;
+}
+ul li{
+    list-style-type:none;
+   
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    .one{
+        width: 200px;
+        height: 50px;
+        background-color: yellow;
+       padding-left: 20px;
+       padding-right: 20px;
+       padding-top: 5px;
+       padding-bottom: 5px;
+       outline: 1px solid black;
+    color: black;
+    }

@@ -1,0 +1,99 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 62.5%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+    
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*{
+    font-family: 'HankenGrotesk-Bold';
+    src: url(/assets/fonts/static/HankenGrotesk-Bold.ttf);
+}
+
+
+.container{
+    background: White hsl(0, 0%, 100%);
+   max-width: 29em;
+   margin: 0 auto;
+}
+
+.child{
+    background-color:hsla(256, 72%, 46%, 1);
+    color: white;
+    padding: 2em;
+    border-bottom-left-radius: 30px ;
+    border-bottom-right-radius: 30px;
+    
+
+}
+
+.child h3,p{
+    font-size: 18px;
+    text-align: center;
+}
+.circle{
+
+   border-radius: 50%;
+   background-color: white;
+   color: black;
+   display: inline-block;
+   width: 100px;
+   height: 100px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 2em auto;
+    
+}
+.aftercircle{
+ 
+  
+}
+.aftercircle p{
+    font-size: 1.3rem;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+    gap: 12px;
+    align-content: space-between;
+}

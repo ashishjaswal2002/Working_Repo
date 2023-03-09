@@ -50,9 +50,11 @@ table {
 
 
 .container{
-    background: White hsl(0, 0%, 100%);
-   max-width: 29em;
+    background-color: lightcyan;
+   max-width: 45em;
    margin: 0 auto;
+   height: auto;
+  
 }
 
 .child{
@@ -74,12 +76,12 @@ table {
    border-radius: 50%;
    background-color: white;
    color: black;
-   display: inline-block;
-   width: 100px;
-   height: 100px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+   padding: 2em;
+  width:  50px;
+   height: 50px;
+ 
+   
+
    margin: 2em auto;
     
 }
@@ -90,10 +92,33 @@ table {
 .aftercircle p{
     font-size: 1.3rem;
 }
+.big_container{
+    padding: 2.8em;
+    background-color: lightcyan;
+ 
+}
 
-.footer{
+
+.reaction{
+    margin-top: 1em;
     display: flex;
-    justify-content: space-around;
-    gap: 12px;
-    align-content: space-between;
+    justify-content: space-between;
+   
+    padding:20px;
+    border-radius: 9px;
+  
+  
+}
+@media screen and (min-width: 708px){
+.container{
+  display: flex;  
+  
+ }
+ .big_container{
+    width: 50em;
+ }
+ .child{
+    width: 60em;
+ }
+    
 }

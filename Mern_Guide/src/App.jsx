@@ -5,6 +5,8 @@ import { NewPlace } from './places/pages/NewPlace';
 import React from 'react';
 import { User } from './places/user/pages/User';
 import { MainNavigation } from './shared/components/Navigation/MainNavigation';
+import { UserPlaces } from './places/pages/UserPlaces';
+
 function App() {
 return <Router>
   <MainNavigation/>
@@ -15,6 +17,10 @@ return <Router>
     {/* If we set exact then it means that if you adding /sdsd then it should render not the user */}
     <User/>
     </Route>
+    <Route path='/:userId/places' >
+     <UserPlaces/>
+    </Route>
+
   <Route path="/places/new">
    <NewPlace/>
   </Route>

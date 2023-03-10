@@ -25,6 +25,6 @@ return <Router>
 </Router>
 }
 
-export default App
+export default App;
 
 // 50 Animating completed.

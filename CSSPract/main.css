@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    padding: 14em 14em 14em 20em;
+}
+
+
+
+
+
+
+.container{
+
+    display: inline-block;
+    background:rgba(255,255,255,0.2);
+    padding: 3em;
+    border-radius: 3em;
+    z-index: 1;
+    backdrop-filter: blur(40px);
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    box-shadow: 10px 10px 10px rgba(46,54,68,0.03);
+}
+
+
+img{
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 50%;
+z-index: -2;
+   height: 100vh;
+
+}
+
+.custom{
+    color: white;
+    width: 500px;
+    height: 500px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(40px);
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    box-shadow: 10px 10px 10px rgba(46,54,68,0.03);
+}

@@ -1,8 +1,9 @@
 import React from "react";
 import "./PlaceList.css";
 import { Link } from "react-router-dom";
-import { PlaceItem } from "./PlaceItem";
+
 import Card from "../../../shared/components/UIElement/Card";
+import { PlaceItem} from "./PlaceItem";
 export const PlaceList = (props) => {
   if (props.items.length === 0) {
     return (

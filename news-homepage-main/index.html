@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="src/main.css" />
     <link
       rel="icon"
       type="image/png"
@@ -32,7 +33,7 @@
     <div class="min-h-screen max-w-[89rem] mx-auto p-10">
       <header class="flex items-center">
         <img src="./assets/images/logo.svg" alt="W Logo" />
-        <nav class="w-[100%]">
+        <nav class="w-[100%] none">
           <ul class="flex justify-end gap-14 text-grey-200">
             <li>Home</li>
             <li>New</li>
@@ -43,7 +44,14 @@
         </nav>
       </header>
       <main>
-        <div class="grid grid-cols-3 grid-rows-3 gap-4 mt-10">
+        <!-- Grid Part -->
+
+
+
+        
+        <div
+          class="grid md:grid-cols-3 grid-rows-3 gap-4 mt-10  sm:grid-cols-1  "
+        >
           <div class="col-span-2 row-span-1">
             <img
               src="./assets/images/image-web-3-desktop.jpg"
@@ -53,7 +61,7 @@
           </div>
 
           <!-- Start of First Grid -->
-          <div class="bg-black p-10 row-span-2">
+          <div class="bg-black p-10 row-span-2 w-[100%]">
             <!--Flex div for the new section  -->
             <div class="border-b-2 pb-8">
               <h1 class="text-yellow-500 text-[2.6rem]">New</h1>
@@ -105,23 +113,54 @@
               Read More
             </button>
           </div>
-          <div class="flex gap-10 ">
-
+          <div class="flex gap-10">
             <div>
-              <img src="./assets/images/image-retro-pcs.jpg" alt="Retri inafe" class="" />
-
+              <img
+                src="./assets/images/image-retro-pcs.jpg"
+                alt="Retri inafe"
+                class=""
+              />
             </div>
 
             <div class="self-start">
-              
-              <h1 class="text-[2rem]">01</h1>
-              <p>Reviving Retro PCs</p>
+              <h1 class="text-[2rem] text-gray-500 opacity-50">01</h1>
+              <p class="font-bold">Reviving Retro PCs</p>
 
               <p>What happens when old PCs are given modern upgrade?</p>
             </div>
           </div>
-          <div></div>
-          <div></div>
+          <div class="flex gap-10">
+            <div>
+              <img
+                src="./assets/images/image-top-laptops.jpg"
+                alt="Retri inafe"
+                class=""
+              />
+            </div>
+
+            <div class="self-start">
+              <h1 class="text-[2rem] text-gray-500 opacity-50">02</h1>
+              <p class="font-bold">Reviving Retro PCs</p>
+
+              <p>What happens when old PCs are given modern upgrade?</p>
+            </div>
+          </div>
+          <div class="flex gap-10">
+            <div>
+              <img
+                src="./assets/images/image-gaming-growth.jpg"
+                alt="Retri inafe"
+                class=""
+              />
+            </div>
+
+            <div class="self-start">
+              <h1 class="text-[2rem] text-gray-500 opacity-50">03</h1>
+              <p class="font-bold">Reviving Retro PCs</p>
+
+              <p>What happens when old PCs are given modern upgrade?</p>
+            </div>
+          </div>
         </div>
       </main>
     </div>
